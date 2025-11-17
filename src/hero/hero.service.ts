@@ -7,8 +7,10 @@ export class HeroService {
   constructor(private prisma: PrismaService) {}
   // criar uma DTO aqui que está no BANCO, o que o usuário vai mnadar
   async create(data: HeroDto) {
-    await this.prisma.hero.create({
+    const hero = await this.prisma.hero.create({
       data,
     });
+
+    return hero;
   }
 }
